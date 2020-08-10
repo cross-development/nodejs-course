@@ -1,9 +1,14 @@
 const express = require('express');
-// const path = require('path');
-const exphbs = require('express-handlebars');
+const expHbs = require('express-handlebars');
+const homeRoutes = require('./routes/home');
+const addRoutes = require('./routes/add');
+const coursesRoutes = require('./routes/courses');
+
 const app = express();
 
-const hbs = exphbs.create({
+const PORT = process.env.PORT || 3000;
+
+const hbs = expHbs.create({
 	defaultLayout: 'main',
 	extname: 'hbs',
 });
@@ -12,19 +17,10 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 
-app.get('/', (req, res) => {
-	res.render('index');
-	// res.status(200);
-	// res.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use('/', homeRoutes);
+app.use('/add', addRoutes);
+app.use('/courses', coursesRoutes);
 
-app.get('/about', (req, res) => {
-	res.render('about');
-	// res.sendFile(path.join(__dirname, 'views', 'about.html'));
-});
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-	`Server listen on port ${PORT}`;
-});
+app.listen(PORT, () => `Server listen on port ${PORT}`);
