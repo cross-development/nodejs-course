@@ -1,11 +1,13 @@
 const { v4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
-const e = require('express');
 
 class Course {
 	constructor(title, price, img) {
-		(this.title = title), (this.price = price), (this.img = img), (this.id = v4());
+		(this.title = title),
+			(this.price = price),
+			(this.img = img),
+			(this.id = v4());
 	}
 
 	toJSON() {
@@ -38,14 +40,24 @@ class Course {
 
 	static getAll() {
 		return new Promise((resolve, reject) => {
-			fs.readFile(path.join(__dirname, '..', 'data', 'courses.json'), 'utf-8', (err, content) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve(JSON.parse(content));
-				}
-			});
+			fs.readFile(
+				path.join(__dirname, '..', 'data', 'courses.json'),
+				'utf-8',
+				(err, content) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(content));
+					}
+				},
+			);
 		});
+	}
+
+	static async getById(id) {
+		const courses = await Course.getAll();
+
+		return courses.find(c => c.id === id);
 	}
 }
 
