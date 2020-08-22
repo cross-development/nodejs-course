@@ -1,8 +1,26 @@
 [
     {
-        "title": "React",
-        "price": "11111",
+        "title": "Angular 8",
+        "price": "12000",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png",
+        "id": "8ae92db5-97f4-494c-ade8-a258d931d61e"
+    },
+    {
+        "title": "Vue JS (v 2.5+)",
+        "price": "20000",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
+        "id": "b56de685-9bdf-4c4b-8302-80ad480732ef"
+    },
+    {
+        "title": "ReactJS",
+        "price": "10000",
         "img": "https://ru.reactjs.org/logo-og.png",
-        "id": "2e5e38b0-11f3-4b38-ae7d-d81977ae4a5a"
+        "id": "5c200062-f1a7-4490-9c77-64cf2f688d01"
+    },
+    {
+        "title": "NodeJS",
+        "price": "10500",
+        "img": "https://coralogix.com/wp-content/uploads/2018/04/Coralogix-Nodejs-integration.jpg",
+        "id": "89439a88-afaf-469e-909b-ff8704eba425"
     }
 ]

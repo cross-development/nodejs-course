@@ -1,33 +1,21 @@
 {
-  "name": "nodejs-course",
+  "name": "node-express",
   "version": "1.0.0",
-  "description": "NodeJS and ExpressJS course",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cross-development/nodejs-course.git"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cross-development/nodejs-course/issues"
-  },
-  "homepage": "https://cross-development.github.io/nodejs-course",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
-    "gh-pages": "^3.1.0",
-    "uuid": "^8.3.0"
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^1.18.11"
   }
 }
