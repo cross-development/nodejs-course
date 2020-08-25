@@ -1,9 +1,11 @@
 const { Router } = require('express');
-const Course = require('../models/course');
+const Course = require('../models/course/course');
 const router = Router();
 
 router.get('/', async (req, res) => {
-	const courses = await Course.find();
+	const courses = await Course.find()
+		.populate('userId', 'email name')
+		.select('price title img');
 
 	res.render('courses', {
 		title: 'Курсы',

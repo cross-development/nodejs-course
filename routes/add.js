@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const Course = require('../models/course');
+const Course = require('../models/course/course');
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -11,12 +11,15 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
 	const { title, price, img } = req.body;
-	const course = new Course({ title, price, img });
+	const { _id } = req.user;
+
+	const course = new Course({ title, price, img, userId: _id });
 
 	try {
 		await course.save();
 		res.redirect('/courses');
-	} catch (error) {s
+	} catch (error) {
+		s;
 		console.log(error);
 	}
 });
