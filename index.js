@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const csrf = require('csurf');
+const flash = require('connect-flash');
 const Handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
 const {
@@ -14,8 +16,8 @@ const addRoutes = require('./routes/add');
 const coursesRoutes = require('./routes/courses');
 const ordersRoutes = require('./routes/orders');
 const authRoutes = require('./routes/auth');
-const User = require('./models/user/user');
 const varMiddleware = require('./middleware/variables');
+const userMiddleware = require('./middleware/user');
 
 const app = express();
 const MONGODB_URI = `mongodb+srv://vitaliy:38vjnQNInjRjmH87@productscluster.dtfx1.mongodb.net/shop`;
@@ -45,7 +47,10 @@ app.use(
 	}),
 );
 
+app.use(csrf());
+app.use(flash());
 app.use(varMiddleware);
+app.use(userMiddleware);
 
 app.use('/', homeRoutes);
 app.use('/add', addRoutes);
