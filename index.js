@@ -18,6 +18,7 @@ const ordersRoutes = require('./routes/orders');
 const authRoutes = require('./routes/auth');
 const varMiddleware = require('./middleware/variables');
 const userMiddleware = require('./middleware/user');
+const errorMiddleware = require('./middleware/error');
 const keys = require('./keys');
 
 const app = express();
@@ -59,6 +60,8 @@ app.use('/cart', cartRoutes);
 app.use('/courses', coursesRoutes);
 app.use('/orders', ordersRoutes);
 app.use('/auth', authRoutes);
+
+app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3000;
 
