@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const csrf = require('csurf');
+require('dotenv').config();
 const flash = require('connect-flash');
 const helmet = require('helmet');
 const compression = require('compression');
