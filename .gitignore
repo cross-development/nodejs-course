@@ -1,4 +1,5 @@
 *.txt
+keys/keys.dev.js
 
 # Logs
 logs
